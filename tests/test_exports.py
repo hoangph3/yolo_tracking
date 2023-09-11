@@ -39,10 +39,10 @@ def test_export_onnx():
         model=model,
         im=im,
         file=PT_WEIGHTS,
-        opset=12,
+        opset=11,
         dynamic=True,
         fp16=False,  # export failure: "slow_conv2d_cpu" not implemented for 'Half', osnet
-        simplify=True
+        simplify=False
     )
     assert f is not None
 
@@ -60,3 +60,6 @@ def test_export_tflite(enabled=False):
         file=ONNX_WEIGHTS,
     )
     assert f is not None
+
+
+test_export_onnx()

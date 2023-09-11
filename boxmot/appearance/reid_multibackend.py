@@ -100,7 +100,7 @@ class ReIDDetectMultiBackend(nn.Module):
                 if cuda
                 else ["CPUExecutionProvider"]
             )
-            self.session = onnxruntime.InferenceSession(str(w), providers=providers)
+            self.session = onnxruntime.InferenceSession(str(w), providers=['CUDAExecutionProvider'])
         elif self.engine:  # TensorRT
             LOGGER.info(f"Loading {w} for TensorRT inference...")
             tr.check_packages(("nvidia-tensorrt",))

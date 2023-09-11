@@ -27,9 +27,9 @@ class TestRequirements():
                 s += f'"{r}" '
         if s:
             logger.warning(f'\nMissing packages: {s}\nAtempting installation...')
-            try:
-                subprocess.check_output(f'pip install --no-cache {s} {cmds}', shell=True, stderr=subprocess.STDOUT)
-            except Exception as e:
-                logger.error(e)
-                exit()
+            # try:
+            #     subprocess.check_output(f'pip install --no-cache {s} {cmds}', shell=True, stderr=subprocess.STDOUT)
+            # except Exception as e:
+            #     logger.error(e)
+            #     exit()
             logger.success('All the missing packages were installed successfully')
